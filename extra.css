@@ -1,0 +1,32 @@
+form {
+    background-color: lightgray;
+}
+
+h1.t {
+    text-align: center;
+    margin-top: 3%;
+}
+
+h1.b {
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+img.i1 {
+    max-width: 96px;
+    position: absolute;
+    border-radius: 100%;
+    top: 2.5%;
+    left: 19%;
+}
+
+img.i2 {
+    max-width: 88px;
+    position: absolute;
+    top: 2%;
+    right: 20%;
+}
+
+footer {
+    margin-bottom: 5%;
+}
