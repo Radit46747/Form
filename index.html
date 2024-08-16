@@ -7,7 +7,138 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="extra.css"/>
+    <style>
+      @media (max-width : 600px)
+      {
+        img {
+          display: none;
+        }
+      }
+      @media (min-width : 600px)
+      {
+        img.i1 {
+          top: 2%;
+          left: 5%;
+          max-width: 48px;
+        }
+        img.i2 {
+          top: 2%;
+          right: 5.5%;
+          max-width: 44px;
+        }
+      }
+      @media (min-width : 650px)
+      {
+        img.i1 {
+          top: 1.5%;
+          left: 7.5%;
+          max-width: 60px;
+        }
+        img.i2 {
+          top: 1.5%;
+          right: 8%;
+          max-width: 55px;
+        }
+      }
+      @media (min-width : 700px)
+      {
+        img.i1 {
+          top: 1.7%;
+          left: 10%;
+        }
+        img.i2 {
+          top: 1.7%;
+          right: 10.8%;
+        }
+      }
+      @media (min-width : 750px)
+      {
+        img.i1 {
+          top: 1.9%;
+          left: 12%;
+        }
+        img.i2 {
+          top: 1.9%;
+          right: 13%;
+        }
+      }
+      @media (min-width : 800px)
+      {
+        img.i1 {
+          top: 1.5%;
+          left: 12%;
+          max-width: 72px;
+        }
+        img.i2 {
+          top: 1.5%;
+          right: 13%;
+          max-width: 66px;
+        }
+      }
+      @media (min-width : 850px)
+      {
+        img.i1 {
+          top: 1.7%;
+          left: 14%;
+        }
+        img.i2 {
+          top: 1.7%;
+          right: 15%;
+        }
+      }
+      @media (min-width : 900px)
+      {
+        img.i1 {
+          top: 2%;
+          left: 15%;
+        }
+        img.i2 {
+          top: 1.9%;
+          right: 16%;
+        }
+      }
+      @media (min-width : 1000px)
+      {
+        img.i1 {
+          max-width: 84px;
+        }
+        img.i2 {
+          max-width: 77px;
+        }
+      }
+      @media (min-width : 1100px)
+      {
+        img.i1 {
+          max-width: 96px;
+        }
+        img.i2 {
+          max-width: 88px;
+        }
+      }
+      @media (min-width : 1200px)
+      {
+        img.i1 {
+          top: 2.2%;
+          max-width: 108px;
+        }
+        img.i2 {
+          top: 1.96%;
+          max-width: 99px;
+        }
+      }
+    </style>
     <script src="script.js"></script>
+    <script>
+      // For validation
+      function validate() {
+        // Select the element
+        const element = document.getElementById("form1");
+        // Add a class
+        element.classList.add("was-validated");
+        // Remove a class
+        element.classList.remove("needs-validation");
+      }
+    </script>
     <title>Formulir Pendaftaran</title>
 </head>
 <body>
@@ -16,7 +147,7 @@
       <h1 class="t">Formulir Pendaftaran Ekskul</h1>
       <img class="i2" src="https://3.bp.blogspot.com/-BRV8kAVyi4I/XDX3S86Pk5I/AAAAAAAABwA/K5fnfc4c1VYps0EcV32qP6yB96kghqU3QCLcBGAs/s1600/logo%2Bjawa%2Bbarat.png"/>
     </header>
-    <form action="action.php" class="was-validated" method="post" style="margin: 4% 0 !important; padding: 2% !important;">
+    <form action="action.php" id="form1" class="needs-validation" method="post" style="margin: 4% 0 !important; padding: 2% !important;">
         <fieldset>
             <legend>Biodata</legend>
         <div class="mb-3">
@@ -239,10 +370,14 @@
       <div class="mb-3">
         <label for="validationPass" class="form-label">Password</label>
         <input type="password" class="form-control" id="validationPass" minlength="8" placeholder="Password" required>
+        <div class="invalid-feedback">
+          Please enter your password.
+        </div>
+      </div><div class="mb-3">
         <label for="validationPass" class="form-label">Confirm Password</label>
         <input type="password" class="form-control" id="validationPass" minlength="8" title="Must be same with your password." placeholder="Confirm Password" required>
         <div class="invalid-feedback">
-          Please enter your password.
+          Please enter your confirm password.
         </div>
       </div>
       </fieldset>
@@ -331,26 +466,26 @@
             <legend>Upload Persyaratan</legend>
             <div class="mb-3">
                 <label for="validationFile1" class="form-label">Upload Pas Foto 3×4</label>
-                <input type="file" class="form-control" id="validationFile1" title="Only image file." required>
+                <input type="file" class="form-control" id="validationFile1" accept="image/*" title="Only image file." required>
                 <div class="invalid-feedback">
                   Please upload img file.
                 </div>
               </div>
               <div class="mb-3">
                 <label for="validationFile2" class="form-label">Upload Kartu Tanda Pelajar</label>
-                <input type="file" class="form-control" id="validationFile2" required>
+                <input type="file" class="form-control" id="validationFile2" accept=".pdf" title="Only pdf." required>
                 <div class="invalid-feedback">
-                  Please upload file.
+                  Please upload pdf file.
                 </div>
               </div>
           </fieldset>
-          <div class="form-check mb-3">
-            <input type="checkbox" class="form-check-input" id="validationCheck" required>
+          <div class="form-check form-switch mb-3">
+            <input type="checkbox" class="form-check-input" id="validationCheck" role="switch" required>
             <label class="form-check-label" for="validationCheck">Dengan Mengisi Formulir Ini, Saya Setuju Dengan S&K yang Berlaku.</label>
             <div class="invalid-feedback">You must accept the agreement before submitting.</div>
           </div>
           <div class="mb-3">
-            <input class="btn btn-primary" type="submit" id="submit">
+            <input class="btn btn-primary" type="submit" id="submit" onclick="validate()">
             <input class="btn btn-secondary" type="reset" id="reset">
           </div>
       </form>
